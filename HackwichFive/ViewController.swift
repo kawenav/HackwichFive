@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet var topLabel: UILabel!
     
     @IBOutlet var bottomLabel: UILabel!
+    
+    @IBOutlet var buttonLabel: UIButton!
+    
 
 //Part 6: Declare & Assign two New variables
     var currentIndex = 0
@@ -28,7 +31,24 @@ class ViewController: UIViewController {
 //Part 7: Display item at index [0] upon app launch
         self.bottomLabel.text = favoriteFoodsArray[currentIndex]
     }
-
+//Part 8: Set up If/Else statement to iterate through each item in array upon button press
+    @IBAction func buttonPressed(_ sender: Any) {
+        
+        if currentIndex < favoriteFoodsArray.count
+        {
+            bottomLabel.text = favoriteFoodsArray[currentIndex]
+            buttonLabel.setTitle("Next", for: UIControl.State.normal)
+            currentIndex += 1
+        }
+    else
+        {
+            print("button has been disabled")
+            (buttonLabel as UIButton).isEnabled=false
+        }
+            
+    
+    }
+    
     
 
 }
